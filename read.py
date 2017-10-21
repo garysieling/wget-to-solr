@@ -1,6 +1,7 @@
 file = open("files.txt", "r")
 
 import scipy.ndimage
+import face_recognition
 
 for line in file:
       filepath = line.strip()
@@ -9,3 +10,5 @@ for line in file:
       print(height)
       print(width)
       print(channels)
+      print(1.0 * height / width)
+
