@@ -1,1 +1,1 @@
-find . | grep jpg > files.txt
+find . | grep jpg | grep sacredwindow > files.txt
