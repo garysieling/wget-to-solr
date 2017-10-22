@@ -1,5 +1,13 @@
 file = open("files.txt", "r")
 
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.metrics import pairwise_distances_argmin
+from sklearn.datasets import load_sample_image
+from sklearn.utils import shuffle
+from time import time
+
 import urllib.request, urllib.parse
 import urllib3
 
@@ -10,11 +18,12 @@ import face_recognition
 import json
 
 i = 0
+
 for line in file:
     data = {}
     filepath = line.strip()
 
-    remove = len("./") - 1
+    remove = len("./") 
     idremove = len("./sacredwindowrescueproject.org/")
     data['file'] = filepath
     data['id'] = filepath[idremove:]
@@ -31,7 +40,7 @@ for line in file:
         height, width, channels = shape
         data['height'] = height
         data['width'] = width
-        data['channels'] = width
+        data['channels'] = channels
 
     data['aspect'] = int(100 * height / width)
     
