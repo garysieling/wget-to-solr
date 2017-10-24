@@ -73,3 +73,14 @@ mv cv2.cpython-36m-x86_64-linux-gnu.so cv2.so
 cd ~/.virtualenvs/cv/lib/python3.5/site-packages/
 ln -s /usr/local/lib/python3.5/site-packages/cv2.so cv2.so
 
+apt-install tesseract
+
+sudo add-apt-repository ppa:alex-p/tesseract-ocr
+sudo apt-get update
+apt-get install tesseract-ocr
+
+wget https://github.com/tesseract-ocr/tessdata/raw/master/eng.traineddata
+mkdir -p /usr/local/share/tessdata/
+mv eng.traineddata /usr/share/tesseract-ocr/4.00/
+
+pip3 install --upgrade google-cloud-vision
